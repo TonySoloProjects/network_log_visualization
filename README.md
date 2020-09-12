@@ -1,4 +1,4 @@
-Routines to analyse and visualize a network server error log file
+Routines to analyze and visualize a network server error log file
 
 Created by: Tony Held, tony.held@gmail.com
 Created on: 09/01/2020
