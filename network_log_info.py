@@ -19,8 +19,9 @@ pp = pprint.PrettyPrinter(indent=4)     # pretty printer
 
 
 class NetworkLogReader:
+    """Read server error logfile and its process results."""
     def __init__(self, file_name, max_lines=None):
-        """Create object to inspect and plot data from a network failure file.
+        """Initialize NetworkLogReader
 
         Parameters
         ----------
@@ -903,7 +904,7 @@ if __name__ == "__main__":
         fig01.show()    # Use .show() when in pycharm
     elif python_environment == 'jupyter':
 
-        # Create interactive wigets and callback routines for clicking nodes
+        # Create interactive wigets/callback to create interactive network figure
 
         # data to display in widgets
         node_names = list(nlr.unique_nodes)
