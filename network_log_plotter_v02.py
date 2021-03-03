@@ -10,9 +10,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import networkx as nx
+import ipywidgets as widgets
 
 import pprint
 pp = pprint.PrettyPrinter(indent=4)     # pretty printer
+
+from network_log_reader_v02 import NetworkLogReader
+
 
 class NetworkLogPlotter:
     """Class to plot/visualize NetworkLogReader objects.
@@ -243,3 +247,78 @@ class NetworkLogPlotter:
         # update figure layout
         fig.layout.title = f'Interactive Graph of Network Failures<br>Selected Node: {plot_node}'
         fig.layout.shapes = my_shapes
+
+    @staticmethod
+    def make_widgets(nlr, fig):
+        """
+        Create widgets for interactive figure created with plot_network3.
+
+        Parameters
+        ----------
+        nlr : NetworkLogReader
+            reader associated with error log file
+
+        fig : plotly.graph_objs._figurewidget.FigureWidget
+            Figure to receive interactive widgets
+
+        Returns
+        --------
+        """
+        # Create interactive widgets/callback to create interactive network figure
+
+        edge_types = ['Send', 'Receive', 'Send+Receive']
+        node_names = list(nlr.unique_nodes)
+        num_nodes = len(node_names)
+
+        # Figure widgets, create them with a dummy state and then
+        # change the value to invoke the event handler before first use
+        slider = widgets.IntSlider(
+            min=0,
+            max=num_nodes - 1,
+            value=1,
+            description='Node #: ')
+
+        slider_label = widgets.Label(value="Node Name: ")
+
+        node_hb = widgets.HBox([slider, slider_label])
+
+        drop = widgets.Dropdown(
+            options=edge_types,
+            value=edge_types[1],
+            description='Errors: ',
+            disabled=False, )
+
+        drop_label = widgets.Label(value="Error Type: ")
+
+        drop_hb = widgets.HBox([drop, drop_label])
+
+        # widget handlers
+        def on_slider_value_change(change):
+            new_node_number = change['new']
+            new_node_name = node_names[new_node_number]
+            slider_label.value = f'Node Name: {new_node_name}'
+            NetworkLogPlotter.update_figure(fig, nlr, plot_node=new_node_name, edge_type=drop.value)
+
+        def on_drop_value_change(change):
+            new_edge_type = change['new']
+            drop_label.value = f'Error Type:  {new_edge_type}'
+            node_name = node_names[slider.value]
+            NetworkLogPlotter.update_figure(fig, nlr, plot_node=node_name, edge_type=new_edge_type)
+
+        slider.observe(on_slider_value_change, names='value')
+        drop.observe(on_drop_value_change, names='value')
+
+        # Initialize (changing from the instantiated value will invoke the handlers)
+        slider.value = 0
+        drop.value = edge_types[2]
+
+        # Callback for clicking on the scatterplot
+        # Changes the slider widget which will update the figure and synch with the slider
+        def update_point(trace, points, selector):
+            node_id = points.point_inds[0]
+            slider.value = node_id
+
+        scatter = fig.data[0]
+        scatter.on_click(update_point)
+
+        return node_hb, drop
