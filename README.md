@@ -19,7 +19,7 @@ Based on server log files listing send and receive errors between nodes on a clu
 data visualization routines were created to interactively determine the count and type
 of failures between servers.
 
-The user can interact with the figure through drop down menus or sliders, or simply click on a node
+The user can interact with the figure through dropdown menus or sliders, or simply click on a node
 in the graphic to see send, receive, or send and receive errors between that node and others.
 
 Each node's color indicates the total number of errors for that node. 
@@ -49,7 +49,7 @@ The following packages are required:
 Open and run `main_jupyter_v01.ipynb` in a jupyter notebook to explore interactive plotting features.
 
 If you do not have jupyter, you can run `python main_pycharm_v01.py` to create static html versions 
-key plots.  Note: these will not be interactive if outside the jupyter environment.
+of key plots.  Note: these will not be interactive if outside the jupyter environment.
 
 ## Screenshots
 Interactive figure to explore server errors. 
