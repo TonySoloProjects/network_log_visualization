@@ -52,11 +52,12 @@ If you do not have jupyter, you can run `python main_pycharm_v01.py` to create s
 of key plots.  Note: these will not be interactive if outside the jupyter environment.
 
 ## Screenshots
-Interactive figure to explore server errors. 
-Use the slider, dropdown menu, or simply click on a node to update the figure.
-![Image](graphics/interactive_failure_plot.JPG)
+Interactive figure on jupyter to explore server errors. 
+Use the slider, dropdown menu, or simply click on a node to update the figure.  
+![Image](animated_plot.gif)
 
 Cumulative error plot to quickly determine the number of problematic servers on the system.
+
 ![Image](graphics/cummulative_server_failure_plot.png)
 ## License
 
