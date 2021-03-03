@@ -54,7 +54,7 @@ of key plots.  Note: these will not be interactive if outside the jupyter enviro
 ## Screenshots
 Interactive figure on jupyter to explore server errors. 
 Use the slider, dropdown menu, or simply click on a node to update the figure.  
-![Image](animated_plot.gif)
+![Image](graphics/animated_plot.gif)
 
 Cumulative error plot to quickly determine the number of problematic servers on the system.
 
