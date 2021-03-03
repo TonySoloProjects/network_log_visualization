@@ -1,6 +1,6 @@
 """
-NetworkLogReader reads in a server error log file and then creates a node mapping
-to associate servers with their send and receive errors.
+From pycharm.
+
 
 Created by: Tony Held tony.held@gmail.com
 Created on: 2020/09/10
@@ -12,8 +12,12 @@ from math import ceil
 
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import networkx as nx
 import ipaddress    # for sorting ip addresses
+import ipywidgets as widgets
+from IPython.display import display
 
 import pprint
 pp = pprint.PrettyPrinter(indent=4)     # pretty printer
@@ -22,7 +26,7 @@ pp = pprint.PrettyPrinter(indent=4)     # pretty printer
 class NetworkLogReader:
     """Read server error logfile and its process results."""
     def __init__(self, file_name, max_lines=None):
-        """Initialize NetworkLogReader.
+        """Initialize NetworkLogReader
 
         Parameters
         ----------

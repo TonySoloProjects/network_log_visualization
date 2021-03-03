@@ -1,7 +1,7 @@
 """
 Routines to interactively visualize network server error log files
 to graphically determine which servers tend to fail and to potentially
-relations between failing connections.
+find relations between failing connections.
 
 Created by: Tony Held tony.held@gmail.com
 Created on: 2020/09/10

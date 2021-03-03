@@ -3,26 +3,31 @@
 
 Routines to interactively visualize network server error log files
 to graphically determine which servers tend to fail and to potentially
-relations between failing connections.
+find relations between failing connections.
 
 ## Table of contents
 * [Project Description](#project-description)
 * [Getting Started](#getting-started)
 * [Prerequisites](#prerequisites)
-* [Installation](#installation)
 * [Usage](#usage)
 * [Screenshots](#screenshots)
 * [License](#license)
 * [Contact](#contact)
-* [Resources & Acknowledgements](#Resources-&-Acknowledgements)
 
 ## Project Description
+Based on server log files listing send and receive errors between nodes on a cluster,
+data visualization routines were created to interactively determine the count and type
+of failures between servers.
 
-Brief overview of project here:
+The user can interact with the figure through drop down menus or sliders, or simply click on a node
+in the graphic to see send, receive, or send and receive errors between that node and others.
+
+The width of the line connecting the nodes is proportional to the number of errors between servers.  
+
+The user can hover over nodes to display pop-up labeling 
+with additional descriptive statistics about send/receive errors.
 
 ## Getting Started
-
-To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
@@ -34,34 +39,16 @@ The following packages are required:
 * networkx
 * ipaddress
 * ipywidgets
-* jupyter
-
-
-### Installation
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-2. Install Required packages
-   ```sh
-   npm install
-   ```
+* jupyter (if you wish to use the interactive figure widgets)
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Open and run `main_jupyter_v01.ipynb` in a jupyter notebook to explore interactive plotting features.
 
-Notes:
-
-1) The project was intially created in Pycharm.
-2) Certain visualized routines use widgets which only work properly in a jupyter notebook
-3) The project can be run in Pycharm from network_log_info.py which creates a non-interactive visualization of network errors.
-4) The Pycharm files were also imported into jupyter and can be run from the file: Network_Visualizer_07.ipynb
-5) Running from jupyter creates the desired fully functional interactive visualizations
+If you do not have jupyter, you can run `python main_pycharm_v01.py` to create static html versions 
+key plots.  Note: these will not be interactive if outside the jupyter environment.
 
 ## Screenshots
-
 
 ## License
 
@@ -71,9 +58,3 @@ Distributed under the *** License. See `*** License Info ***` for more informati
 
 Tony Held - tony.held@gmail.com  
 Project Link: [https://github.com/TonySoloProjects/network_log_visualization](https://github.com/TonySoloProjects/network_log_visualization)
-
-## Resources & Acknowledgements
-
-* []()
-* []()
-* []()
