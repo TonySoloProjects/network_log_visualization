@@ -129,7 +129,7 @@ class NetworkLogPlotter:
         # -------------------------------------------------------------
         node_trace = nlp.create_scatter(edge_type, node_color, node_text, x_coord, y_coord)
         fig = nlp.create_figure(plot_node, node_trace, shapes);
-        fig.write_html("/graphics/network_errors_v02.html")
+        fig.write_html("graphics/network_errors_v02.html")
         return fig
 
     @staticmethod

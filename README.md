@@ -22,10 +22,13 @@ of failures between servers.
 The user can interact with the figure through drop down menus or sliders, or simply click on a node
 in the graphic to see send, receive, or send and receive errors between that node and others.
 
+Each node's color indicates the total number of errors for that node. 
 The width of the line connecting the nodes is proportional to the number of errors between servers.  
 
 The user can hover over nodes to display pop-up labeling 
 with additional descriptive statistics about send/receive errors.
+
+Additional text information listing the top 25 servers for send/receive errors are also displayed.
 
 ## Getting Started
 
@@ -49,7 +52,12 @@ If you do not have jupyter, you can run `python main_pycharm_v01.py` to create s
 key plots.  Note: these will not be interactive if outside the jupyter environment.
 
 ## Screenshots
+Interactive figure to explore server errors. 
+Use the slider, dropdown menu, or simply click on a node to update the figure.
+![Image](graphics/interactive_failure_plot.JPG)
 
+Cumulative error plot to quickly determine the number of problematic servers on the system.
+![Image](graphics/cummulative_server_failure_plot.png)
 ## License
 
 Distributed under the *** License. See `*** License Info ***` for more information.
